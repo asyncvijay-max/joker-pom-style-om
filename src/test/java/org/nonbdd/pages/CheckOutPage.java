@@ -1,6 +1,7 @@
 package org.nonbdd.pages;
 
 import org.nonbdd.base.BasePage;
+import org.nonbdd.pojo.BillingAddress;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -30,6 +31,8 @@ public class CheckOutPage extends BasePage {
 
 
     //ACTIONS
+
+
 
     public void enterFirstName(String fname)
     {
@@ -67,6 +70,19 @@ public class CheckOutPage extends BasePage {
         enterPostalCode(zipcode);
         enterEmail(email);
     }
+
+    public void setBillingAddress(BillingAddress billingAddress)
+    {
+        enterFirstName(billingAddress.getFirstName());
+        enterLastName(billingAddress.getLastName());
+        enterbillingAddress(billingAddress.getBillingAddress());
+        enterbillingCity(billingAddress.getCity());
+        enterPostalCode(billingAddress.getZipCode());
+        enterEmail(billingAddress.getEmail());
+
+
+    }
+
 
     public OrderConfirmationPage placeOrder()
     {

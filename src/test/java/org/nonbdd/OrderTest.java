@@ -16,9 +16,12 @@ public class OrderTest extends BaseTest {
     @Test
     public void guestCheckOutOrderConfirmationwithPOM() throws IOException {
 
-        BillingAddress billingAddress = new BillingAddress();
-        InputStream is = getClass().getClassLoader().getResourceAsStream("billingAddress.json");
-        billingAddress = JacksonUtils.deserialisedJson(is,billingAddress);
+        BillingAddress billingAddress = JacksonUtils.deserialisedJson("billingAddress.json",BillingAddress.class);
+
+
+//        BillingAddress billingAddress = new BillingAddress();
+//        InputStream is = getClass().getClassLoader().getResourceAsStream("billingAddress.json");
+//        billingAddress = JacksonUtils.deserialisedJson(is,billingAddress);
 
 
 

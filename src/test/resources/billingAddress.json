@@ -1,8 +1,8 @@
 {
-  "firstName": "John",
-  "lastName": "Lever",
-  "billingAddress": "1234 Main Street",
+  "firstName": "Peter",
+  "lastName": "More",
+  "billingAddress": "701 Main Street",
   "city": "New York",
   "zipCode": "10006",
-  "email": "john.doe.leveer@example.com"
+  "email": "peter.doe.leveer@example.com"
 }

@@ -8,11 +8,20 @@ import java.io.InputStream;
 
 public class JacksonUtils {
 
-    public static BillingAddress deserialisedJson(InputStream is, BillingAddress billingAddress) throws IOException {
+    public static <T> T deserialisedJson(String path, Class <T> T) throws IOException {
 
         ObjectMapper objectMapper = new ObjectMapper();
-        return objectMapper.readValue(is,billingAddress.getClass());
+        InputStream is = JacksonUtils.class.getClassLoader().getResourceAsStream(path);
+        return objectMapper.readValue(is,T);
 
     }
+
+
+//    public static BillingAddress deserialisedJson(InputStream is, BillingAddress billingAddress) throws IOException {
+//
+//        ObjectMapper objectMapper = new ObjectMapper();
+//        return objectMapper.readValue(is,billingAddress.getClass());
+//
+//    }
 
 }

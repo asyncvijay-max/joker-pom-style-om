@@ -4,21 +4,31 @@ package org.nonbdd;
 import org.nonbdd.base.BaseTest;
 import org.nonbdd.pages.*;
 import org.nonbdd.pojo.BillingAddress;
+import org.nonbdd.utils.JacksonUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 public class OrderTest extends BaseTest {
 
     @Test
-    public void guestCheckOutOrderConfirmationwithPOM() {
+    public void guestCheckOutOrderConfirmationwithPOM() throws IOException {
 
         BillingAddress billingAddress = new BillingAddress();
-        billingAddress.setFirstName("raghavvv");
-        billingAddress.setLastName("mohanen");
-        billingAddress.setBillingAddress("4556 cambridge");
-        billingAddress.setCity("New York");
-        billingAddress.setZipCode("10006");
-        billingAddress.setEmail("charlie34@testing.com");
+        InputStream is = getClass().getClassLoader().getResourceAsStream("billingAddress.json");
+        billingAddress = JacksonUtils.deserialisedJson(is,billingAddress);
+
+
+
+//        BillingAddress billingAddress = new BillingAddress();
+//        billingAddress.setFirstName("raghavvv");
+//        billingAddress.setLastName("mohanen");
+//        billingAddress.setBillingAddress("4556 cambridge");
+//        billingAddress.setCity("New York");
+//        billingAddress.setZipCode("10006");
+//        billingAddress.setEmail("charlie34@testing.com");
 
         driver.get("https://askomdch.com/");
         HomePage homePage = new HomePage(driver);

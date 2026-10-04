@@ -2,8 +2,7 @@ package org.nonbdd;
 
 
 import org.nonbdd.base.BaseTest;
-import org.nonbdd.pages.HomePage;
-import org.nonbdd.pages.StorePage;
+import org.nonbdd.pages.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -20,6 +19,27 @@ public class OrderTest extends BaseTest {
         storePage.clickOnSearchItemButton();
 
         //Assert.assertEquals(storePage.searchItemResultsExtractedText(),"");
+
+      storePage.addProducttoTheCart("Blue Shoes");
+      CartPage cartPage = storePage.clickOnViewCartLink();
+
+      CheckOutPage checkOutPage = cartPage.clickOnCheckOutBtn();
+
+      checkOutPage.enterFirstName("Kriranji");
+      checkOutPage.enterLastName("krrrori");
+      checkOutPage.enterbillingAddress("25rr street");
+      checkOutPage.enterbillingCity("New York");
+      checkOutPage.enterPostalCode("10001");
+      checkOutPage.enterEmail("testajk@test.com");
+
+      OrderConfirmationPage orderConfirmationPage = checkOutPage.placeOrder();
+
+      //String orderconfirmationtext = orderConfirmationPage.orderConfirmationExtractedText();
+
+      //Assert.assertEquals(orderconfirmationtext,"");
+
+
+
 
 
 
